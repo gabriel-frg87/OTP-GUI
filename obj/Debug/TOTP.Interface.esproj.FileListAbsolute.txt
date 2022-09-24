@@ -1,0 +1,2 @@
+C:\Users\Gabriel\Source\Repos\Gabriel-TOTP-1\Web\obj\Debug\TOTP.Interface.esproj.SuggestedBindingRedirects.cache
+C:\Users\Gabriel\Source\Repos\Gabriel-TOTP-1\Web\obj\Debug\TOTP.Interface.esproj.CoreCompileInputs.cache
