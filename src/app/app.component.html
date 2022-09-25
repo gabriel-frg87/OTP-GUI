@@ -5,20 +5,31 @@
 <p *ngIf="!employees"><em>Loading... Please refresh once the ASP.NET backend has started. </em></p>
 
 <table *ngIf="employees">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Logged In</th>
-            <th>Logged Out</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let employee of employees">
-            <td>{{ employee.id }}</td>
-            <td>{{ employee.userName }}</td>
-            <td>{{ employee.logIn }}</td>
-            <td>{{ employee.logOut }}</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Logged In</th>
+      <th>Logged Out</th>
+      <th>Get Password</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.userName }}</td>
+      <td>{{ employee.logIn }}</td>
+      <td>{{ employee.logOut }}</td>
+      <td><button type="button" (click)="onClickGetOtp(employee.userName, 30)">Get OTP</button></td>
+      <td><button *ngIf="otpPassword" type="button" (click)="onClickVerifyOtp(otpPassword.password, employee.userName, 30)">Is Valid?</button></td>
+    </tr>
+  </tbody>
 </table>
+
+
+<h3> Generated OTP </h3>
+<h4 *ngIf="otpPassword">Password: {{ otpPassword.password }}</h4>
+<h4 *ngIf="otpPassword">Seconds left: {{ otpPassword.remainingSeconds }}</h4>
+
+<h4 *ngIf="otpPassword">Validity: {{ isValid }}</h4>
