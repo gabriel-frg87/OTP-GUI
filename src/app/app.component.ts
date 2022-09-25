@@ -7,20 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public forecasts?: WeatherForecast[];
+  public employees?: Employee[];
 
   constructor(http: HttpClient) {
-    http.get<WeatherForecast[]>('/weatherforecast').subscribe(result => {
-      this.forecasts = result;
+    http.get<Employee[]>('https://localhost:7060/api/Employee').subscribe(result => {
+      this.employees = result;
     }, error => console.error(error));
   }
 
-  title = 'Web';
+  title = 'Employees';
 }
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+interface Employee {
+  id: number;
+  userName: string;
+  logIn: Date;
+  logOut: Date;
 }
